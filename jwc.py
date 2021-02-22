@@ -28,12 +28,3 @@ def job():
     insertJwcNews(newslist)
 
 
-if __name__ == '__main__':
-    job()
-
-# 通过schedule来执行
-# schedule.every(10).minutes.do(job) # 每10分钟执行一次
-
-# while True:
-#     schedule.run_pending() # 运行所有可运行的任务
-#     time.sleep(1)

@@ -127,5 +127,5 @@ def Login_To_Get_Session(username, password):
         sendEmail(message_body, receiver)
 
 
-if __name__ == '__main__':
+def job():
     Login_To_Get_Session(username, passwd)
