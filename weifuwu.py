@@ -114,16 +114,16 @@ def Login_To_Get_Session(username, password):
     }
     now_time = datetime.datetime.now().strftime('%Y%m%d')
     data["date"] = now_time
-    print(data)
+    # print(data)
     session.cookies.update(re_cookies)
     r = session.post(url="https://wfw.scu.edu.cn/ncov/wap/default/save", headers=headers, data=data).json()
     if ("今天已经填报了" in r["m"]):
         print("今天已经填报了")
-        message_body = "今天已经填报过了,请不要重复使用我哦！"
+        message_body = "今天已经填报过了,请不要重复使用我哦！（地址：" + data['area'] + "）"
         sendEmail(message_body, receiver)
     elif ("操作成功" in r["m"]):
         print("填报成功")
-        message_body = '今日打卡成功！专心做其他事情吧！'
+        message_body = "今日打卡成功！专心做其他事情吧！（地址：" + data['area'] + "）"
         sendEmail(message_body, receiver)
 
 
