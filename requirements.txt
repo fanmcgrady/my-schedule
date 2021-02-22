@@ -1,0 +1,7 @@
+aliyun-python-sdk-core-v3
+bs4
+requests
+psycopg2
+schedule
+selenium
+pyquery
