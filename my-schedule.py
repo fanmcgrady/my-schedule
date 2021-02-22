@@ -9,7 +9,7 @@ def job3():
     print("do job3")
 
 # schedule.every(10).minutes.do(job1) # 每10分钟监控教务处新闻
-schedule.every(10).minutes.do(job3) # 每10分钟监控教务处新闻
+schedule.every(2).seconds.do(job3) # 每10分钟监控教务处新闻
 # schedule.every().day.at("06:30").do(job2) # 每天6：30打卡
 
 while True:
