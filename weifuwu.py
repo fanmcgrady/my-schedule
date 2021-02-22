@@ -21,7 +21,7 @@ profile.add_argument('-headless')  # 设置无头模式
 profile.set_preference('network.proxy.type', 1)
 profile.set_preference('network.proxy.http', "127.0.0.1")  # IP为你的代理服务器地址:如‘127.0.0.0’，字符串类型
 profile.set_preference('network.proxy.http_port', "7777")  # PORT为代理服务器端口号:如，9999，整数类型
-browser = webdriver.Firefox(options=profile)
+
 
 config = ReadConfig()
 username = config.get_key("username")
@@ -51,6 +51,7 @@ def sendEmail(message_body, receiver="43471492@qq.com"):
 
 
 def Login_To_Get_Session(username, password):
+    browser = webdriver.Firefox(options=profile)
     url = "https://ua.scu.edu.cn/login?service=https%3A%2F%2Fwfw.scu.edu.cn%2Fa_scu%2Fapi%2Fsso%2Fcas-index%3Fredirect%3Dhttps%253A%252F%252Fwfw.scu.edu.cn%252Fncov%252Fwap%252Fdefault%252Findex"
     browser.get(url)
     # WebDriverWait(browser,10).until(EC.presence_of_all_elements_located)
