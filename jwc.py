@@ -1,10 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
 
-from news import News
 from connect import insertJwcNews
-import schedule
-import time
+from news import News
+
+
+# import schedule
 
 def job():
     print("I'm working...")
@@ -27,8 +28,12 @@ def job():
     insertJwcNews(newslist)
 
 
-schedule.every(10).minutes.do(job) # 每10分钟执行一次
+if __name__ == '__main__':
+    job()
 
-while True:
-    schedule.run_pending() # 运行所有可运行的任务
-    time.sleep(1)
+# 通过schedule来执行
+# schedule.every(10).minutes.do(job) # 每10分钟执行一次
+
+# while True:
+#     schedule.run_pending() # 运行所有可运行的任务
+#     time.sleep(1)

@@ -59,7 +59,7 @@ def Login_To_Get_Session(username, password):
     # 定位到iframe
     iframe = browser.find_element_by_id("loginIframe")
     # 切换到iframe
-    browser.switch_to_frame(iframe)
+    browser.switch_to.frame(iframe)
     # 选中“密码登录”
     WebDriverWait(browser, 30).until(EC.presence_of_element_located((By.CLASS_NAME, 'van-tabs__nav--line')))
     type_username_password = browser.find_element_by_css_selector("div.van-tabs__nav--line>div:nth-child(3)")
@@ -127,4 +127,5 @@ def Login_To_Get_Session(username, password):
         sendEmail(message_body, receiver)
 
 
-Login_To_Get_Session(username, passwd)
+if __name__ == '__main__':
+    Login_To_Get_Session(username, passwd)
