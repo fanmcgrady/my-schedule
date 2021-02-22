@@ -16,7 +16,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from readconfig import ReadConfig
 
 profile = webdriver.FirefoxOptions()
-# profile.add_argument('-headless')  # 设置无头模式
+profile.add_argument('-headless')  # 设置无头模式
 # 设置代理服务器
 profile.set_preference('network.proxy.type', 1)
 profile.set_preference('network.proxy.http', "127.0.0.1")  # IP为你的代理服务器地址:如‘127.0.0.0’，字符串类型
