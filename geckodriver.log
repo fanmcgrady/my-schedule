@@ -60,3 +60,20 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 JavaScript error: , line 0: NotFoundError: No such JSWindowActor 'MarionetteEvents'
 1613966473866	Marionette	INFO	Stopped listening on port 63381
+1614000771473	geckodriver	INFO	Listening on 127.0.0.1:50942
+1614000774525	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\fanmc\\AppData\\Local\\Temp\\rust_mozprofileKItAoB"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614000776620	Marionette	INFO	Listening on port 50953
+1614000776704	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614000776715	Marionette	ERROR	[15] No reply from Marionette:Register
+1614000792747	geckodriver	INFO	Listening on 127.0.0.1:50982
+1614000795809	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "C:\\Users\\fanmc\\AppData\\Local\\Temp\\rust_mozprofiledVKpri"
+*** You are running in headless mode.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1614000797109	Marionette	INFO	Listening on port 50990
+JavaScript error: chrome://browser/content/places/browserPlacesViews.js, line 131: Error: No DOM node set for aPlacesNode.
+node.type: 0. node.parent: [xpconnect wrapped nsINavHistoryResultNode]
+1614000797360	Marionette	WARN	TLS certificate errors will be ignored for this session
+1614000797368	Marionette	ERROR	[15] No reply from Marionette:Register
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))

@@ -7,7 +7,7 @@ def insertJwcNews(newslist):
     if len(newslist) == 0:
         return
 
-    conn = psycopg2.connect(database="student", user="fangzhiyang", password="123", host="localhost", port="5432")
+    conn = psycopg2.connect(database="student", user="fangzhiyang", password="123", host="127.0.0.1", port="5432")
     cur = conn.cursor()
 
     for news in newslist:
