@@ -16,7 +16,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from readconfig import ReadConfig
 
 profile = webdriver.FirefoxOptions()
-profile.add_argument('-headless')  # 设置无头模式
+# profile.add_argument('-headless')  # 设置无头模式
 # 设置代理服务器
 profile.set_preference('network.proxy.type', 1)
 profile.set_preference('network.proxy.http', "127.0.0.1")  # IP为你的代理服务器地址:如‘127.0.0.0’，字符串类型
@@ -24,18 +24,16 @@ profile.set_preference('network.proxy.http_port', "7777")  # PORT为代理服务
 
 
 config = ReadConfig()
-username = config.get_key("username")
-passwd = config.get_key("passwd")
-receiver = config.get_key("receiver")
+receiver_list = [config.get_key("receiver"), config.get_key("receiver2")]
 
-def sendEmail(message_body, receiver="43471492@qq.com"):
+def sendEmail(message_body, receiver):
     mail_host = "smtp.qq.com"  # 设置服务器
-    mail_user = "43471492@qq.com"  # 用户名
-    mail_pass = "ndzvzbybgsbrbgjd"  # 口令
-    sender = '43471492@qq.com'
+    mail_user = config.get_key("username")  # 用户名
+    mail_pass = config.get_key("mailToken")  # 口令
+    sender = config.get_key("username")
     message = MIMEText(message_body, 'plain', 'utf-8')
     message['From'] = Header("微服务自动打卡小助手", 'utf-8')
-    message['To'] = Header(username, 'utf-8')
+    message['To'] = Header(config.get_key("username") + ";" + config.get_key("username2"), 'utf-8')
     subject = '微服务自助打卡邮件通知'
     message['Subject'] = Header(subject, 'utf-8')
     # print(message)
@@ -120,13 +118,15 @@ def Login_To_Get_Session(username, password):
     r = session.post(url="https://wfw.scu.edu.cn/ncov/wap/default/save", headers=headers, data=data).json()
     if ("今天已经填报了" in r["m"]):
         print("今天已经填报了")
-        message_body = "今天已经填报过了,请不要重复使用我哦！（地址：" + data['area'] + "）"
-        sendEmail(message_body, receiver)
+        message_body = "今天已经填报过了，请不要重复使用我哦！（地址：" + data['area'] + "）"
+        sendEmail(message_body, receiver_list)
     elif ("操作成功" in r["m"]):
         print("填报成功")
         message_body = "今日打卡成功！专心做其他事情吧！（地址：" + data['area'] + "）"
-        sendEmail(message_body, receiver)
+        sendEmail(message_body, receiver_list)
 
 
 def job():
-    Login_To_Get_Session(username, passwd)
+    Login_To_Get_Session(config.get_key("username"), config.get_key("passwd"))
+    Login_To_Get_Session(config.get_key("username2"), config.get_key("passwd2"))
+
