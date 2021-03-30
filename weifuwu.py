@@ -125,5 +125,7 @@ def Login_To_Get_Session(username, password, receiver):
 
 
 def job():
+    # 暂定一个随机时间，再打卡
+    time.sleep(random.randint(60, 3600))
     Login_To_Get_Session(config.get_key("username2"), config.get_key("passwd2"), config.get_key("receiver2"))
     Login_To_Get_Session(config.get_key("username"), config.get_key("passwd"), config.get_key("receiver"))
