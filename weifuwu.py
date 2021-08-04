@@ -43,10 +43,10 @@ def sendEmail(message_body, receiver):
 
 def Login_To_Get_Session(username, password, receiver):
     profile = webdriver.FirefoxOptions()
-    profile.add_argument('-headless')  # 设置无头模式
+    # profile.add_argument('-headless')  # 设置无头模式
     # 设置代理服务器
     profile.set_preference('network.proxy.type', 1)
-    profile.set_preference('network.proxy.http', "127.0.0.1")  # IP为你的代理服务器地址:如‘127.0.0.0’，字符串类型
+    profile.set_preference('network.proxy.http', "127.0.0.1.html")  # IP为你的代理服务器地址:如‘127.0.0.0’，字符串类型
     profile.set_preference('network.proxy.http_port', "7777")  # PORT为代理服务器端口号:如，9999，整数类型
 
     browser = webdriver.Firefox(options=profile)
@@ -128,6 +128,10 @@ def Login_To_Get_Session(username, password, receiver):
 
 def job():
     # 暂定一个随机时间，再打卡
-    time.sleep(random.randint(60, 3600))
-    Login_To_Get_Session(config.get_key("username2"), config.get_key("passwd2"), config.get_key("receiver2"))
+    # time.sleep(random.randint(60, 3600))
+    # Login_To_Get_Session(config.get_key("username2"), config.get_key("passwd2"), config.get_key("receiver2"))
     Login_To_Get_Session(config.get_key("username"), config.get_key("passwd"), config.get_key("receiver"))
+
+if __name__ == '__main__':
+    job()
+
