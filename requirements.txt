@@ -5,3 +5,4 @@ psycopg2
 schedule
 selenium
 pyquery
+tencentcloud-sdk-python
