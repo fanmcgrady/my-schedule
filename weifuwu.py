@@ -167,8 +167,8 @@ def job():
     # time.sleep(random.randint(60, 3600))
     # Login_To_Get_Session(config.get_key("username2"), config.get_key("passwd2"), config.get_key("receiver2"))
     # login(config.get_key("username"), config.get_key("passwd"), config.get_key("receiver"))
-    login_without_captcha(config.get_key("username"), config.get_key("passwd"), config.get_key("receiver"))
-    login_without_captcha(config.get_key("username2"), config.get_key("passwd2"), config.get_key("receiver2"))
+    # login_without_captcha(config.get_key("username2"), config.get_key("passwd2"), config.get_key("receiver"))
+    login_without_captcha(config.get_key("username"), config.get_key("passwd"), config.get_key("receiver2"))
 
 
 if __name__ == '__main__':
