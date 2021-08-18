@@ -28,21 +28,17 @@ def sendEmail(message_body, receiver):
     mail_pass = config.get_key("mailToken")  # 口令
     sender = config.get_key("receiver")
     message = MIMEText(message_body, 'plain', 'utf-8')
-    message['From'] = Header("微服务自动打卡小助手", 'utf-8')
-    message['To'] = Header(receiver, 'utf-8')
-    subject = '微服务自助打卡邮件通知'
-    message['Subject'] = Header(subject, 'utf-8')
-    # print(message)
+    message['From'] = "43471492@qq.com"
+    message['To'] = receiver
+    message['Subject'] = "微服务自助打卡邮件通知"
     try:
         smtpObj = smtplib.SMTP_SSL(mail_host, 465)
-        # smtpObj.connect()    # 25 为 SMTP 端口号
         smtpObj.login(mail_user, mail_pass)
         smtpObj.sendmail(sender, receiver, message.as_string())
         print("邮件发送成功")
         smtpObj.quit()
     except smtplib.SMTPException:
         print("Error: 无法发送邮件")
-
 
 def login(username, password, receiver):
     profile = webdriver.FirefoxOptions()
